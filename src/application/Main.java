@@ -20,51 +20,51 @@ import javafx.scene.text.TextAlignment;
 
 public class Main extends Application {
 	
-	// размер поля
+	// СЂР°Р·РјРµСЂ РїРѕР»В¤
 	private static final int width = 800;
 	private static final int height = 600;
 	
-	// ширина и высота ракетка
+	// С€РёСЂРёРЅР° Рё РІС‹СЃРѕС‚Р° СЂР°РєРµС‚РєР°
 	private static final int RACKET_WIDTH = 10;
 	private static final int RACKET_HEIGHT = 90;
 	
-	// радиус мяча
+	// СЂР°РґРёСѓСЃ РјВ¤С‡Р°
 	private static final int BALL_RAD = 30;
 	
-	// начальные координаты ракетки игрока
+	// РЅР°С‡Р°Р»СЊРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ СЂР°РєРµС‚РєРё РёРіСЂРѕРєР°
 	double playerX=0;
 	double playerY = height/2;
 	
-	// начальные координаты ракетки компа
+	// РЅР°С‡Р°Р»СЊРЅС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹ СЂР°РєРµС‚РєРё РєРѕРјРїР°
 	double compX = width - RACKET_WIDTH;
 	double compY = height/2;
 	
-	// координаты мяча
+	// РєРѕРѕСЂРґРёРЅР°С‚С‹ РјВ¤С‡Р°
 	double ballX = width/2;
 	double ballY = height/2;
 	
-	// инструмент рисования
+	// РёРЅСЃС‚СЂСѓРјРµРЅС‚ СЂРёСЃРѕРІР°РЅРёВ¤
 	GraphicsContext gc;
 	
-	// скорость мяча
+	// СЃРєРѕСЂРѕСЃС‚СЊ РјВ¤С‡Р°
 	double ballYSpeed = 3;
 	double ballXSpeed = 3;
 	
-	// игровой цикл
+	// РёРіСЂРѕРІРѕР№ С†РёРєР»
 	boolean gameStarted;
 	
 	private void drawTable() {
-		// рисуем поле
+		// СЂРёСЃСѓРµРј РїРѕР»Рµ
 		gc.setFill(Color.GREEN);
 		gc.fillRect(0, 0, width, height);			
-		// рисуем разделительную линию
+		// СЂРёСЃСѓРµРј СЂР°Р·РґРµР»РёС‚РµР»СЊРЅСѓСЋ Р»РёРЅРёСЋ
 		gc.setFill(Color.YELLOW);
 		gc.fillRect(width/2, 0, 2, height);		
-		// рисуем мяч
+		// СЂРёСЃСѓРµРј РјВ¤С‡
 		if(gameStarted) {
 			ballX+=ballXSpeed;
 			ballY+=ballYSpeed;
-			// логика - комп отбивает мяч
+			// Р»РѕРіРёРєР° - РєРѕРјРї РѕС‚Р±РёРІР°РµС‚ РјВ¤С‡
 			if(ballX < width-width/4) {
 				compY = ballY - RACKET_HEIGHT/2;
 			}
@@ -75,7 +75,7 @@ public class Main extends Application {
 			gc.strokeText("Click to start", width/2, height/2);			
 		}
 	
-		// рисуем ракетки
+		// СЂРёСЃСѓРµРј СЂР°РєРµС‚РєРё
 		gc.fillRect(playerX, playerY, RACKET_WIDTH, RACKET_HEIGHT);
 		gc.fillRect(compX, compY, RACKET_WIDTH, RACKET_HEIGHT);	
 	}
